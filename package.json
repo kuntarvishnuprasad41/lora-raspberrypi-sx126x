@@ -1,0 +1,26 @@
+{
+  "name": "sx126x",
+  "version": "0.1.0",
+  "description": "Driver for sx126x LoRa by Waveshare in node.js",
+  "main": "sx126x.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuntarvishnuprasad41/sx126x-raspberry-pi-nodejs.git"
+  },
+  "keywords": [
+    "Lora",
+    "Waveshare",
+    "Sx126x",
+    "Raspberry",
+    "pi"
+  ],
+  "author": "Vishnu Prasad Kuntar'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuntarvishnuprasad41/sx126x-raspberry-pi-nodejs/issues"
+  },
+  "homepage": "https://github.com/kuntarvishnuprasad41/sx126x-raspberry-pi-nodejs#readme"
+}
