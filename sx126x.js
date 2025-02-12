@@ -1,5 +1,5 @@
 class SX126X {
-    constructor(serial_num, freq, addr, power, rssi) { // serial_num is still here for now, but not used in constructor
+    constructor(serial_num, freq, addr, power, rssi) { 
         this.rssi = rssi;
         this.addr = addr;
         this.freq = freq;
@@ -43,10 +43,10 @@ class SX126X {
         this.SX126X_Power_10dBm = 0x03;
 
         this.initializeGPIO();
-        // this.set(freq, addr, power, rssi);  <-- REMOVED from constructor
+         
     }
 
-    beginSerial(serial_num) { // Renamed method
+    beginSerial(serial_num) {  
         // const SerialPort = require('serialport');
         const SerialPort = require('serialport').SerialPort;
 
@@ -99,8 +99,7 @@ class SX126X {
 
 
     air_speed_cal(air_speed) {
-        // TODO: Implement air speed calculation logic (refer to Python code if available)
-        // This is a placeholder, you'll need to create the conversion logic
+ 
         if (air_speed === 300) return this.SX126X_AIR_SPEED_300bps;
         else if (air_speed === 1200) return this.SX126X_AIR_SPEED_1200bps;
         else if (air_speed === 2400) return this.SX126X_AIR_SPEED_2400bps;
@@ -113,7 +112,7 @@ class SX126X {
     }
 
     buffer_size_cal(buffer_size) {
-        // TODO: Implement buffer size calculation logic
+     
         if (buffer_size === 240) return this.SX126X_PACKAGE_SIZE_240_BYTE;
         else if (buffer_size === 128) return this.SX126X_PACKAGE_SIZE_128_BYTE;
         else if (buffer_size === 64) return this.SX126X_PACKAGE_SIZE_64_BYTE;
@@ -122,7 +121,7 @@ class SX126X {
     }
 
     power_cal(power) {
-        // TODO: Implement power calculation logic
+   
         if (power === 22) return this.SX126X_Power_22dBm;
         else if (power === 17) return this.SX126X_Power_17dBm;
         else if (power === 13) return this.SX126X_Power_13dBm;
