@@ -2,6 +2,7 @@
 
 This repository provides a Node.js library for interfacing with the SX126X series LoRa modules using UART and GPIO. The python version is seperate dir
 
+## You can find the old code in [https://github.com/kuntarvishnuprasad41/motor-controller-rpi-lora.git]
 
 ## Features
 - Configurable frequency, address, power, and RSSI.
