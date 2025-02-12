@@ -103,5 +103,5 @@ app.get('/', (req, res) => {
 
 const PORT = 3000; // Choose a different port if 8888 is still in use or conflicting
 server.listen(PORT, () => {
-    console.log(`Server started on http://192.168.100.16:${PORT}`);
+    console.log(`Server started on http://localhost:${PORT}`);
 });
