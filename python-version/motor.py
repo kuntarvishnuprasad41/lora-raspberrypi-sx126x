@@ -86,28 +86,28 @@ try:
         print(f"Stable Zero Count: {stable_zero_count}")
 
 
-        # if current_signal:  # If sensor detects current
-        #     print("On Detected, {current_signal}")
-        #     stable_zero_count = 0  # Reset counter
-        #     if prev_state == "OFF":
-        #         GPIO.output(24, GPIO.LOW)   # Turn OFF relay 24
-        #         GPIO.output(23, GPIO.HIGH)  # Turn ON relay 23
-        #         send_command("ON", target_address)
-        #         prev_state = "ON"
+        if current_signal:  # If sensor detects current
+            print("On Detected, {current_signal}")
+            stable_zero_count = 0  # Reset counter
+            if prev_state == "OFF":
+                GPIO.output(24, GPIO.LOW)   # Turn OFF relay 24
+                GPIO.output(23, GPIO.HIGH)  # Turn ON relay 23
+                send_command("ON", target_address)
+                prev_state = "ON"
 
-        # else:  # Possible OFF condition
-        #     stable_zero_count += 1
-        #     # print(f"Stable Zero Count: {stable_zero_count}")
+        else:  # Possible OFF condition
+            stable_zero_count += 1
+            # print(f"Stable Zero Count: {stable_zero_count}")
 
-            # if stable_zero_count >= ZERO_THRESHOLD and prev_state == "ON":
-            #     GPIO.output(23, GPIO.LOW)   # Turn OFF relay 23
-            #     GPIO.output(24, GPIO.HIGH)  # Turn ON relay 24
-            #     time.sleep(0.5)
-            #     GPIO.output(24, GPIO.LOW)  # Ensure relay 24 is ON
-            #     send_reply("Motor off", target_address)
-            #     send_command("OFF", target_address)
-            #     prev_state = "OFF"
-            #     stable_zero_count = 0  # Reset counter
+            if stable_zero_count >= ZERO_THRESHOLD and prev_state == "ON":
+                GPIO.output(23, GPIO.LOW)   # Turn OFF relay 23
+                GPIO.output(24, GPIO.HIGH)  # Turn ON relay 24
+                time.sleep(0.5)
+                GPIO.output(24, GPIO.LOW)  # Ensure relay 24 is ON
+                send_reply("Motor off", target_address)
+                send_command("OFF", target_address)
+                prev_state = "OFF"
+                stable_zero_count = 0  # Reset counter
 
         time.sleep(0.001)  # Small delay to reduce CPU usage
 
