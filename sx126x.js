@@ -47,7 +47,7 @@ class SX126X {
     }
 
     beginSerial(serial_num) {  
-        // const SerialPort = require('serialport');
+       
         const SerialPort = require('serialport').SerialPort;
 
         this.serialPort = new SerialPort({ // e.g., '/dev/ttyS0'
@@ -68,16 +68,16 @@ class SX126X {
     }
 
     async initializeGPIO() {
-        const pigpio = require('pigpio').Gpio; // Import pigpio library
+        const pigpio = require('pigpio').Gpio;  
         this.m0Pin = new pigpio(this.M0, { mode: pigpio.OUTPUT });
         this.m1Pin = new pigpio(this.M1, { mode: pigpio.OUTPUT });
 
-        this.m0Pin.digitalWrite(0); // GPIO.LOW in pigpio (0)
-        this.m1Pin.digitalWrite(1); // GPIO.HIGH in pigpio (1)
+        this.m0Pin.digitalWrite(0);  
+        this.m1Pin.digitalWrite(1); 
     }
 
     initializeSerial(serial_num) {
-        // const SerialPort = require('serialport');
+        
         const SerialPort = require('serialport').SerialPort;
 
         this.serialPort = new SerialPort({ // e.g., '/dev/ttyS0'
@@ -227,29 +227,7 @@ class SX126X {
         this.m1Pin.digitalWrite(0); // GPIO.LOW
         await new Promise(resolve => setTimeout(resolve, 100)); // time.sleep(0.1)
     }
-
-    // receive() { // Modified receive method with more logging
-    //     return new Promise((resolve, reject) => {
-    //         const dataHandler = (data) => {
-    //             const receivedString = data.toString('utf8');
-    //             console.log(`[SerialPort - receive()] Data event received: ${receivedString}`); // Added logging here
-    //             this.serialPort.off('data', dataHandler);
-    //             this.serialPort.off('error', errorHandler);
-    //             resolve(receivedString);
-    //         };
-
-    //         const errorHandler = (err) => {
-    //             console.error("[SerialPort - receive()] Error during receive:", err); // Added logging here
-    //             this.serialPort.off('data', dataHandler);
-    //             this.serialPort.off('error', errorHandler);
-    //             reject(err);
-    //         };
-
-    //         console.log("[SerialPort - receive()] Setting up data listener..."); // Added logging when listener is set
-    //         this.serialPort.on('data', dataHandler);
-    //         this.serialPort.on('error', errorHandler);
-    //     });
-    // }
+ 
 
     receive() {
         return new Promise((resolve, reject) => {
