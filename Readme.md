@@ -263,6 +263,5 @@ app.listen(PORT, () => {
 });
 ```
 
-## License
-MIT
+
 
