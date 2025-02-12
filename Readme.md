@@ -16,6 +16,12 @@ Ensure you have Node.js installed, then install the required dependencies:
 npm install serialport pigpio
 ```
 
+or just use 
+
+```sh
+ npm install ```
+
+
 ## Usage
 
 ### Import and Initialize
